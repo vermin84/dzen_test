@@ -1,6 +1,6 @@
 
 import styles from './NavigationMenu.module.css'
-import { NavLink } from 'react-router'
+import { NavLink } from 'react-router-dom'
 export default function NavigationMenu(){
     return <aside className={styles.navigationMenuWrapper}>
         <nav>

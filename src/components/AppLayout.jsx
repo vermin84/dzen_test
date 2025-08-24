@@ -8,9 +8,7 @@ export default function AppLayout(){
                 <TopMenu/>
         <main className={styles.appLayoutWrapper}>
             <NavigationMenu/>
-            <section>
-
-            <div>this is outlet</div>
+            <section className={styles.appLayoutScreen}>
             <Outlet/>
             </section>
         </main>
