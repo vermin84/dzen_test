@@ -1,0 +1,4 @@
+.orderDetailsWrapper{
+    flex: 1 1 50%;
+    transition: all 0.3s ease-in-out;
+}

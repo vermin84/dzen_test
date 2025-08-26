@@ -1,3 +1,6 @@
 .ordersWrapper{
     display: flex;
+    padding: 30px 20px ;
+    gap: 50px;
+    
 }
