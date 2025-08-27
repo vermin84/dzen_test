@@ -1,5 +1,5 @@
 .orderListWrapper {
-    flex: 0 1  80%;
+    flex: 0 0  50%;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease-in-out;

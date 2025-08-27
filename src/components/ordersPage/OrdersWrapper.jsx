@@ -3,7 +3,7 @@ export default function OrdersWrapper({children}){
 
     
     return <>
-        <h2>Orders</h2>
+        <h2 className={styles.ordersWrapperTitle}>Orders</h2>
         <div className={styles.ordersWrapper}>{children}</div>
     </>
 }

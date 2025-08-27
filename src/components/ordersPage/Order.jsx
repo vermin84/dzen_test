@@ -1,9 +1,29 @@
+import { useState } from 'react'
 import Date from '../Date'
 
 import styles from './Order.module.css'
 import OrderPrice from './OrderPrice'
+import Modal from '../modal/Modal'
+import { useDispatch } from 'react-redux'
+import { removeOrder } from '../../store/orderSlice'
+import DeleteButton from '../DeleteButton'
 
 export default function Order({order, onClick}){
+    const [showModal, setShowModal] = useState(false)
+
+    const dispatch = useDispatch()
+    function deleteHandler(e){
+        e.stopPropagation()
+            setShowModal(true)
+    }
+
+    const confirmDeleteHandler=(id)=>{
+            dispatch(removeOrder(id))
+            setShowModal(false)
+    }
+    function cancelHandler(){
+        setShowModal(false)
+    }
     const uahPrice = order.products.reduce( (sum,product)=>{
         const price = product.price.find(p=>p.symbol=== 'UAH')
         return sum +=price ? price.value : 0
@@ -28,6 +48,7 @@ export default function Order({order, onClick}){
         </div>
         {<Date date={order.date}/>}
         <OrderPrice price={orderPrice}/>
-        <div>delete</div>
+        <DeleteButton onDelete={(e)=>{e.stopPropagation(); deleteHandler(e)}}/>
+        {showModal && <Modal title={order.title} onConfirm={() => confirmDeleteHandler(order.id)} onCancel={cancelHandler}/>}
     </div>
 }

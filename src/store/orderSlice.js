@@ -14,9 +14,16 @@ const ordersSlice = createSlice({
     removeOrder: (state, action) => {
       state.list = state.list.filter(order => order.id !== action.payload);
     },
+    removeProductFromOrders: (state, action) => {
+      const productId = action.payload;
+      state.list = state.list.map(order => ({
+        ...order,
+        products: order.products.filter(product => product.id !== productId),
+      }));
+    },
   },
 })
 
 
-export const { addOrder, removeOrder } = ordersSlice.actions;
+export const { addOrder, removeOrder, removeProductFromOrders } = ordersSlice.actions;
 export default ordersSlice.reducer;

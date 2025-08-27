@@ -20,6 +20,6 @@ export const orders = [
     title: 'Order 3',
     date: '2017-06-29 12:09:33',
     description: 'desc',
-    products: [] // Пустой заказ
+    products: products.filter(p => p.order === 3)
   }
 ];
