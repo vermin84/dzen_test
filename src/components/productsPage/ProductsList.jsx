@@ -1,4 +1,4 @@
-//import {products} from '../../../data/products.js'
+
 import { useSelector } from 'react-redux'
 import Product from './Product'
 import styles from './ProductList.module.css'

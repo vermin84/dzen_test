@@ -1,4 +1,4 @@
-
+import styles from './ProductsFilter.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterType } from '../../store/productsSlice';
 import { selectFilterType, selectProductTypes } from '../../store/selectors';
@@ -13,6 +13,8 @@ export default function ProductsFilter() {
   };
 
   return (
+    <div className={styles.productsFilterWrapper}>
+        <p className={styles.productsFilterTitle}>Show products:</p>
     <select value={filterType} onChange={handleChange}>
       {types.map((type) => (
         <option key={type} value={type}>
@@ -20,5 +22,6 @@ export default function ProductsFilter() {
         </option>
       ))}
     </select>
+      </div>
   );
 }

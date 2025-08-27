@@ -6,7 +6,10 @@ import styles from './TopMenu.module.css'
 export default function TopMenu(){
     return <header className={styles.TopMenu}>
         <Logo/>
-        <HeaderTimer/>
+        <div>
+
         <ActiveSessionsCounter/>
+        <HeaderTimer/>
+        </div>
         </header>
 }

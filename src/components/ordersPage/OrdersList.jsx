@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import Order from './Order'
 import styles from './OrdersList.module.css'
-//import {orders} from '../../../data/orders'
+
 
 export default function OrdersList({setOrder}){
     const orders = useSelector(state => state.orders.list);
     function activeOrderHandler(order){
-    setOrder(order)
+    setOrder(order.id)
     }
     return <div className={styles.orderListWrapper}>
         

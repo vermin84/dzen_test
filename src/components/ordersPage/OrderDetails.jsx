@@ -1,12 +1,18 @@
 import ProductShort from "./ProductShort"
 import styles from './OrderDetails.module.css'
-export default function OrderDetails({order}){
+import CloseButton from "../CloseButton"
+export default function OrderDetails({order, onClose}){
     
     return <div className={styles.orderDetailsWrapper}>
-        { order.products.length>0 && <ul>{
+        <div className={styles.orderDetailsContainer}>
+            <CloseButton onCancel={onClose}/>
 
-                 order.products.map(prod=><ProductShort key={prod.id} product={prod}/>)}
+        <h3 className={styles.orderDetailsTitle}>{order.title}</h3>
+        { order.products.length>0 && <ul >{
+            
+            order.products.map(prod=><ProductShort key={prod.id} product={prod}/>)}
             
         </ul>   }
+            </div>
     </div>
 }
